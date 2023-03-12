@@ -180,9 +180,9 @@ function updateCartTotal() {
         let subTotal = Number(cartItems[i].getElementsByClassName('item-sub-total')[0].innerText.replace('$', ''))
         total += subTotal;
         console.log(subTotal)
-        totalContainer.innerText = 'Total price : $' + total;
         console.log('Total updated')
     }
+    totalContainer.innerText = 'Total price : $' + total;
 }
 
 function clearTheCart() {
@@ -190,6 +190,15 @@ function clearTheCart() {
     for (let i = 0; i < itemDataList.length; i++) {
         itemDataList[i].remove()
     }
+}
+
+
+
+function proceedPayment(){
+    let outer = document.getElementsByClassName('outer')[0]
+    outer.getElementsByClassName('shop-outer')[0].style.display = 'none';
+    outer.getElementsByClassName('item-outer-main')[0].style.display = 'none'
+    outer.getElementsByClassName('cart-outer')[0].style.display = 'none';
 }
 
 // function documentariesRightSlide() {

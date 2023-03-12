@@ -11,13 +11,12 @@ body{
     font-family: 'Poppins', sans-serif;
     /*background-size: cover;*/
     overflow-x: hidden;
-
 }
 
-.item-cart-outer{
+/* -------------------------------------------- Shop styles start ------------------------------------------------------*/
+.item-outer-main{
     display: flex;
     justify-content: space-between;
-
 }
 
 .items-outer{
@@ -258,9 +257,11 @@ body{
     transform: scale(1.1);
 }
 
+/* ------------------------------------Shop styles end ---------------------------------------------------*/
 
+/*=======================================================================================================================================================*/
 
-/* -------------------------- Shopping Cart styles  ---------------------------*/
+/* ---------------------------------- Shopping Cart styles start  ----------------------------------------*/
 .cart{
     border: 1px solid blue;
     border-radius: 8px;
@@ -394,3 +395,66 @@ body{
     align-self: flex-end;
     cursor: pointer;
 }
+/* --------------------------------------- Items cart styles end ----------------------------------------------*/
+
+/*====================================================================================================================================================*/
+
+/* --------------------------------------- Checkout page styles start ------------------------------------------*/
+.order-summary{
+    justify-content: center;
+    background-color: #efefef;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.reference-common, .description-common, .amount-common, .title-language-common{
+    display: inline;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.order-summary-details-outer{
+    margin: 0 30px 25px 30px ;
+}
+.reference-label, .description-label, .amount-label, .order-title{
+    width: 100px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 100px;
+
+}
+.reference-label, .description-label, .amount-label{
+    color: #96ecd3;
+    background-color: #0b5d5e;
+    padding: 6px;
+    border-radius: 8px;
+    position: absolute;
+    width: 150px!important;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px;
+}
+.reference-no, .description-text, .amount{
+    margin-left: 250px;
+    padding: 20px;
+}
+.title-and-language {
+    padding: 10px!important;
+}
+.order-title{
+    font-size: 1.5em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #18b6ea;
+    margin-top: 20px;
+    background-color: #042038;
+    border-radius: 8px;
+    padding: 10px;
+}
+.language{
+    float: right;
+}
+
+
+
+/* --------------------------------------- Checkout page styles end --------------------------------------------*/

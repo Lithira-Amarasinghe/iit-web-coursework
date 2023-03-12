@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    <div class="item-cart-outer">
+    <div class="item-outer-main">
         <div class="items-outer">
 
             <!--            Documentary-->
@@ -395,7 +395,31 @@
     </div>
     <div class="btn-outer">
         <div class="btn-shop btn-clear" onclick="clearTheCart()">Clear your order</div>
-        <div class="btn-shop btn-place-order">Place your order</div>
+        <div class="btn-shop btn-place-order" onclick="proceedPayment()">Place your order</div>
+    </div>
+    <div class="order-summary">
+        <div class="title-and-language order-summary-details-outer">
+            <div class="order-title title-language-common">Order summary</div>
+            <div class="language title-language-common">
+                <select name="" id="">
+                    <option value="english">English</option>
+                    <option value="french">French</option>
+                    <option value="spanish">Spanish</option>
+                </select>
+            </div>
+        </div>
+        <div class="reference-outer order-summary-details-outer">
+            <div class="reference-label reference-common">Reference</div>
+            <div class="reference-no reference-common">00111059546258792</div>
+        </div>
+        <div class="description-outer order-summary-details-outer">
+            <div class="description-label description-common">Description</div>
+            <div class="description-text description-common">Make payment</div>
+        </div>
+        <div class="amount-outer order-summary-details-outer">
+            <div class="amount-label amount-common">Amount(GBP)</div>
+            <div class="amount amount-common">10</div>
+        </div>
     </div>
 </div>
 <script src='https://kit.fontawesome.com/a076d05399.js'  crossorigin='anonymous'></script>
