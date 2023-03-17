@@ -12,6 +12,12 @@ body{
     /*background-size: cover;*/
     overflow-x: hidden;
 }
+.btn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+}
+
 
 /* -------------------------------------------- Shop styles start ------------------------------------------------------*/
 .item-outer-main{
@@ -123,7 +129,7 @@ body{
 
 .btn-add-to-cart:hover{
     cursor: pointer;
-    background-color: #981818;
+    background-color: #988d18;
     transition-duration: 0.3s;
     transform: scale(1.1);
 }
@@ -400,17 +406,26 @@ body{
 /*====================================================================================================================================================*/
 
 /* --------------------------------------- Checkout page styles start ------------------------------------------*/
-.order-summary{
+
+#order-checkout-section{
+    display: flex;
     justify-content: center;
-    background-color: #efefef;
+    flex-direction: column;
+    align-items: center;
+}
+.checkout-page-main-outers{
+    background-color: #d9f4f6;
     border-radius: 8px;
-    padding: 10px;
+    padding: 40px;
+    margin-bottom:30px ;
+    box-shadow: 0 0 20px black;
+    width: 90%;
 }
 
 .reference-common, .description-common, .amount-common, .title-language-common{
     display: inline;
     font-size: 1em;
-    font-family: 'Poppins', sans-serif;
+    /*font-family: 'Poppins', sans-serif;*/
 }
 
 .order-summary-details-outer{
@@ -441,7 +456,7 @@ body{
 .title-and-language {
     padding: 10px!important;
 }
-.order-title{
+.checkout-page-main-titles{
     font-size: 1.5em;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -450,11 +465,86 @@ body{
     background-color: #042038;
     border-radius: 8px;
     padding: 10px;
+    width: fit-content;
 }
 .language{
     float: right;
 }
 
+.payment-details{
+    display: grid;
+    grid-template-columns: 48% 48%;
+}
+.card-providers-logos img{
+    width: 200px;
+}
+
+.billing-details-input-fields{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    margin: 20px 50px;
+}
+.billing-details-input-fields div{
+    margin-bottom: 20px;
+    height: 30px;
+}
+.billing-details-input-fields label{
+    margin-bottom: 20px;
+    height: 30px;
+}
+.billing-details-input-label{
+    color: #ffffff;
+    background-color: #0b5d5e;
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin: 0 20px;
+    font-weight: 600;
+    align-items: center;
+}
+.billing-details-input {
+    width: 80%;
+    height: 40px;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.billing-details-input input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
 
 
+}
+.checkout-page-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.checkout-page-buttons button{
+    border-radius: 15px;
+    padding: 5px 20px;
+    font-size: 1em;
+    font-weight: 600;
+}
+.billing-address-buttons{
+
+}
+.billing-address-buttons button{
+
+}
+.btn-billing-address-cancel{
+    border: 3px solid #178cb2;
+    background-color: white;
+    color: #178cb2;
+}
+.btn-billing-address-save{
+    border: none;
+    background-color: #178cb2;
+    color: white;
+}
+.contact-details-input-fields{
+    display: grid;
+    grid-template-columns: 20% auto;
+    margin: 20px 50px;
+}
 /* --------------------------------------- Checkout page styles end --------------------------------------------*/

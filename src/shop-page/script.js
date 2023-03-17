@@ -183,6 +183,12 @@ function updateCartTotal() {
         console.log('Total updated')
     }
     totalContainer.innerText = 'Total price : $' + total;
+    updateTotalInCheckoutPage(total);
+}
+
+function updateTotalInCheckoutPage(total){
+    let totalAmountContainer = document.getElementsByClassName('amount')[0];
+    totalAmountContainer.innerText = total;
 }
 
 function clearTheCart() {
