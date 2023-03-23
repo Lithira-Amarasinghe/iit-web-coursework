@@ -12,12 +12,99 @@ body{
     /*background-size: cover;*/
     overflow-x: hidden;
 }
+.btn{
+    margin: 20px 10px;
+}
 .btn:hover{
     cursor: pointer;
     transform: scale(1.1);
     transition-duration: 0.3s;
 }
+.btn-hover{
+    position: relative;
+    display: inline-flex;
+    padding: 10px 30px;
+    border: 1px solid red;
+    overflow: hidden;
+    --x:0px;
+    --y:0px;
+}
 
+.btn-hover::before{
+    content: '';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: #18b6ea;
+    transition: height 0.7s, width 0.7s;
+}
+
+.btn-hover:hover::before{
+    width:500px;
+    height: 500px;
+}
+
+
+/* ------------------------------------- Presentation page styles start ------------------------------------------------*/
+#presentation-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right bottom, #510d60, #151591);
+    transition: width 2s;
+    height:800px;
+}
+.presentation-page-outer{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 600px;
+    flex-wrap: wrap;
+    background-color: #acdae5;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #000000;
+    padding: 20px;
+}
+.page-heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 4em;
+    font-weight: 800;
+    border-radius: 8px;
+    padding: 10px 100px;
+    margin-bottom: 20px;
+    background-color: #0b8b8c;
+}
+.page-heading:nth-child(0){
+    color: white;
+}
+.authors-details{
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+}
+.author{
+    height: 70px;
+    width: 300px;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px;
+    background-color: #0c536b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+/* ------------------------------------- Presentation page styles end ------------------------------------------------*/
 
 /* -------------------------------------------- Shop styles start ------------------------------------------------------*/
 .item-outer-main{
@@ -43,7 +130,7 @@ body{
 .items-thumbnails{
     overflow-x: scroll;
     display: flex;
-    height: 580px;
+    height: 680px;
     justify-content: center;
     align-items: center;
 
@@ -61,6 +148,7 @@ body{
 .item{
     border-radius: 8px;
     width: 250px;
+    height: 550px;
     margin: 10px 20px;
     box-shadow: 0px 0px 25px black;
     display: flex;
@@ -76,9 +164,8 @@ body{
     /*border: 5px solid red;*/
     cursor: pointer;
     transform: scale(1.03);
-    background: #ef2121;
+    background: #000000;
     color: white;
-    box-shadow: 0 0 10px #2f0202;
 }
 
 .item-genre-title{
@@ -96,7 +183,8 @@ body{
     display: none;
 }
 .item > img{
-    width: inherit;height: inherit;
+    width: inherit;
+    min-height: 400px;
     border-radius: inherit;
 }
 .item-details{
@@ -166,11 +254,6 @@ body{
     slideRight();
 }
 
-@keyframes right-slide{
-    100%{
-        left: -100%;
-    }
-}
 
 .shop-heading-outer{
     display: flex;
@@ -478,19 +561,57 @@ body{
 .card-providers-logos img{
     width: 200px;
 }
+.card-number input, .card-holders-name input{
+    width: 350px;
+}
+.payment-heading{
+    margin:0 0 40px 0;
+}
+.payment-details-inputs-fields{
+    margin: 10px;
+}
+.payment-details-inputs-fields input{
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+}
 
+.billing-address{
+    position: relative;
+}
+.contact-details{
+    position: relative;
+}
+.btn-edit{
+    position: absolute;
+    display: none;
+    right: 5%;
+    top: 5%;
+    border: none;
+    background-color: #127677;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 0 10px #24a9b4;
+}
+.btn-edit:hover{
+    cursor:pointer;
+}
 .billing-details-input-fields{
     display: grid;
     grid-template-columns: 20% 80%;
     margin: 20px 50px;
 }
 .billing-details-input-fields div{
-    margin-bottom: 20px;
-    height: 30px;
+    margin-bottom: 30px;
+    height: 40px;
 }
 .billing-details-input-fields label{
-    margin-bottom: 20px;
-    height: 30px;
+    margin-bottom: 30px;
+    height: 40px;
 }
 .billing-details-input-label{
     color: #ffffff;
@@ -502,20 +623,31 @@ body{
     align-items: center;
 }
 .billing-details-input {
-    width: 80%;
-    height: 40px;
+    width: 100%;
+    height: 30px;
     background-color: white;
-    padding: 5px 10px;
+    padding: 0px 10px;
     border-radius: 5px;
+
 }
 .billing-details-input input {
     width: 100%;
+    height: inherit;
+    overflow: auto;
     border: none;
     outline: none;
     background-color: transparent;
-
-
 }
+
+.billing-contact-summery{
+    background-color: #2b75b6;
+    color: #ffffff;
+    border-radius: 15px;
+    margin: 10px 20px;
+    padding: 10px 20px;
+    display: none;
+}
+
 .checkout-page-buttons{
     display: flex;
     justify-content: space-between;
@@ -525,6 +657,7 @@ body{
     padding: 5px 20px;
     font-size: 1em;
     font-weight: 600;
+    box-shadow: 0 0 5px #11325b;
 }
 .billing-address-buttons{
 
@@ -532,19 +665,53 @@ body{
 .billing-address-buttons button{
 
 }
-.btn-billing-address-cancel{
-    border: 3px solid #178cb2;
+
+.billing-contact-cancel-btn{
+    border: 4px solid #116b86;
     background-color: white;
-    color: #178cb2;
+    color: #116b86;
 }
-.btn-billing-address-save{
+.billing-contact-save-btn{
     border: none;
-    background-color: #178cb2;
+    background-color: #116b86;
     color: white;
 }
 .contact-details-input-fields{
     display: grid;
-    grid-template-columns: 20% auto;
-    margin: 20px 50px;
+    grid-template-columns: 20% 80%;
+    /*margin: 20px 50px;*/
+}
+
+.contact-details-input-label{
+    color: #ffffff;
+    background-color: #0b5d5e;
+    border-radius: 8px;
+    padding: 5px 20px;
+    height: 40px;
+    margin: 30px;
+    font-weight: 600;
+    align-items: center;
+}
+
+.contact-details-input-fields div{
+    margin: 30px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: white;
+    width: 60%;
+}
+
+.contact-details-input-fields input{
+    width: 100%;
+    margin: 5px;
+    border: none;
+    outline: none;
+    padding: 3px 10px;
+    background-color: transparent;
+    -webkit-appearance: none;
+}
+
+.contact-details-input-fields input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
 /* --------------------------------------- Checkout page styles end --------------------------------------------*/

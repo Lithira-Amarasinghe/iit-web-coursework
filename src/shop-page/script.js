@@ -1,10 +1,12 @@
-if (document.readyState == 'loading') {
+if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
     ready()
 }
 
 function ready() {
+    setTimeout(loadShop, 4000);
+
     // Remove items from cart using remove button in cart
     let btnRemoveCartItems = document.getElementsByClassName('btn-remove')
     console.log(btnRemoveCartItems)
@@ -46,6 +48,21 @@ function ready() {
     // }
     // changeAddToCartBtnColor()
 
+    const btn = document.querySelector('.btn-hover')
+    btn.onmousemove = function(e){
+        const x = e.pageX - btn.offsetLeft;
+        const y = e.pageY - btn.offsetTop;
+
+        btn.style.setProperty('--x', x + 'px')
+        btn.style.setProperty('--y', y + 'px')
+    }
+}
+
+function loadShop(){
+    let presentationPageContainer = document.getElementById('presentation-page')
+    presentationPageContainer.style.position= 'absolute'
+    presentationPageContainer.style.transitionDuration = '2s'
+    presentationPageContainer.style.top = '-200%';
 }
 
 function changeAddToCartBtnStatus(btn) {
@@ -198,8 +215,6 @@ function clearTheCart() {
     }
 }
 
-
-
 function proceedPayment(){
     let outer = document.getElementsByClassName('outer')[0]
     outer.getElementsByClassName('shop-outer')[0].style.display = 'none';
@@ -207,37 +222,69 @@ function proceedPayment(){
     outer.getElementsByClassName('cart-outer')[0].style.display = 'none';
 }
 
-// function documentariesRightSlide() {
-//     let id;
-//     let element
-//     clearInterval(id)
-//     this.rightDocumentarySlideId = setInterval(frame, 5)
-//
-//     function frame() {
-//         element = document.querySelector('.documentaries-thumbnails')
-//         element.scrollBy(1, 0)
-//     }
-// }
-//
-// function documentariesRightSlideStop() {
-//     clearInterval(rightDocumentarySlideId)
-// }
-//
-// function leftSlide() {
-//     let id;
-//     let element
-//     clearInterval(id)
-//     this.leftDocumentrySlideId = setInterval(frame, 5)
-//
-//     function frame() {
-//         element = document.querySelector('.documentaries-thumbnails')
-//         element.scrollBy(-1, 0)
-//     }
-// }
-//
-// function changeThumbnailStyles() {
-//     let elementById = document.getElementById('.fictional');
-//     elementById.style.border = '5px solid red';
-// }
-//
-//
+// -------------- Checkout page javascript started ------------------------
+function showBillingAddressToEdit(event){
+    let billingAddressContainer = document.getElementsByClassName('billing-address')[0];
+    let billingAddressInputFields = billingAddressContainer.getElementsByClassName('billing-details-input-fields')[0];
+    billingAddressInputFields.style.display = 'grid';
+    billingAddressContainer.getElementsByClassName('billing-address-summary')[0].style.display = 'none';
+    // billingAddressContainer.getElementsByClassName('btn-billing-address-edit')[0].style.display = 'none';
+    event.style.display = 'none'
+}
+
+function saveBillingAddress(){
+    let billingAddressContainer = document.getElementsByClassName('billing-address')[0]
+    let billingAddressInputFields = billingAddressContainer.getElementsByClassName('billing-details-input-fields')[0]
+    let allInputFields = billingAddressInputFields.getElementsByClassName('billing-input-field')
+    let address = '';
+    for (let i = 0; i < allInputFields.length; i++) {
+        let text = allInputFields[i].value.toString().trim()
+        console.log(text)
+        if(text !== ''){
+            address += text + ", "
+        }
+    }
+    if(address === ''){
+        address = 'Enter your billing address'
+    }
+
+    let addressSummeryContainer = billingAddressContainer.getElementsByClassName('billing-address-summary')[0];
+    addressSummeryContainer.innerText = address;
+    billingAddressInputFields.style.display = 'none';
+    addressSummeryContainer.style.display = 'block'
+    billingAddressContainer.getElementsByClassName('btn-billing-address-edit')[0].style.display = 'block'
+}
+
+function showContactDetailsToEdit(){
+    let contactDetailContainer = document.getElementsByClassName('contact-details')[0]
+    let contactDetailsInputFields = contactDetailContainer.getElementsByClassName('contact-details-input-fields')[0]
+    contactDetailsInputFields.style.display = 'grid'
+    contactDetailContainer.getElementsByClassName('contact-details-summery')[0].style.display = 'none'
+    contactDetailContainer.getElementsByClassName('btn-contact-details-edit')[0].style.display = 'none'
+}
+
+function saveContactDetails(){
+    let contactDetailContainer = document.getElementsByClassName('contact-details')[0]
+    let contactDetailsInputFields = contactDetailContainer.getElementsByClassName('contact-details-input-fields')[0]
+    let allInputFields = contactDetailsInputFields.getElementsByTagName("input")
+    let contactDetails = '';
+    for (let i = 0; i < allInputFields.length; i++) {
+        let text = allInputFields[i].value.toString().trim()
+        console.log(text)
+        if(text !== ''){
+            contactDetails += text + ""
+        }
+    }
+    let contactDetailsSummeryContainer = contactDetailContainer.getElementsByClassName('contact-details-summery')[0];
+    if(contactDetails === ''){
+        contactDetails = 'Enter your contact details';
+    }
+    contactDetailsSummeryContainer.innerText = contactDetails;
+    contactDetailsInputFields.style.display = 'none'
+    contactDetailsSummeryContainer.style.display = 'block'
+    contactDetailContainer.getElementsByClassName('btn-contact-details-edit')[0].style.display = 'block'
+}
+
+
+
+// ----------------------------- Checkout page javascript end ------------------------------------
