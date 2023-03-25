@@ -5,7 +5,7 @@ if (document.readyState === 'loading') {
 }
 
 function ready() {
-    setTimeout(loadShop, 4000);
+    // setTimeout(loadShop, 4000);
 
     // Remove items from cart using remove button in cart
     let btnRemoveCartItems = document.getElementsByClassName('btn-remove')
@@ -51,7 +51,7 @@ function ready() {
     const btn = document.querySelector('.btn-hover')
     btn.onmousemove = function(e){
         const x = e.pageX - btn.offsetLeft;
-        const y = e.pageY - btn.offsetTop;
+        const y = e.pageY - btn.offsetTop- 1060;
 
         btn.style.setProperty('--x', x + 'px')
         btn.style.setProperty('--y', y + 'px')
@@ -288,3 +288,25 @@ function saveContactDetails(){
 
 
 // ----------------------------- Checkout page javascript end ------------------------------------
+
+// ---------------------------- Send checkout details start------------------------------------------
+let inputContainer = document.getElementsByClassName('details-for-place-order')[0]
+let name = inputContainer.getElementsByClassName('name-input')[0]
+let contactNo = inputContainer.getElementsByClassName('contact-input')[0]
+
+function sendEmail() {
+    Email.send({
+        SecureToken: "52c01a40-73e0-40f0-afc2-112a5db214a0",
+        To: 'lithira.20220085@iit.ac.lk',
+        From: "you@isp.com",
+        Subject: "Checkout details",
+        Body: "Name : " + name + '  Contact no : ' + contactNo
+    }).then(
+        message => alert(message)
+    );
+}
+
+
+
+
+// ---------------------------- Send checkout details end ------------------------------------------
