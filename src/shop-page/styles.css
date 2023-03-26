@@ -59,10 +59,10 @@ body{
 #header{
     width: 100%;
     box-sizing: border-box;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(208, 249, 250);
+    background-color: rgb(197, 228, 239);
     padding: 5px 30px 5px 5px;
     position: sticky;
     top: 0;
@@ -76,13 +76,15 @@ body{
     align-items: center;
     justify-content: center;
     margin-left: 50px;
-    margin-right: 50px;
 }
 
 #navbar li{
     list-style: none;
     padding: 0 20px;
     position: relative;
+}
+#navbar li:hover {
+    cursor: pointer;
 }
 
 #navbar li a{
@@ -95,12 +97,14 @@ body{
     width: 100px;
 }
 
-#navbar li a:hover,#navbar li a.active{
+#navbar li a:hover,
+#navbar li a.active{
     color: #094064;
     transition: 0.3s ease-in-out ;
 }
 
-#navbar li a.active::after,#navbar li a:hover::after{
+#navbar li a.active::after,
+#navbar li a:hover::after{
     content: "";
     width: 30%;
     height: 2px;
@@ -111,7 +115,7 @@ body{
     transition: 0.2s ease-in ;
 }
 
-.search input{
+.right-nav input{
     width: 100%;
     float: right;
     padding: 6px;
@@ -121,26 +125,25 @@ body{
     font-size: 17px;
     border-radius: 10px;
 }
-.search{
+.right-nav{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.search a i{
+.right-nav a i{
     padding: 10px;
     border-radius: 10px;
+    color: black;
 }
 
-.search a i:hover{
+.right-nav a i:hover{
     color: white;
     background-color: #2e3030;
     border-radius: 20px;
     transition: 0.3s ease-in-out;
 }
-
-
 /* -------------------------------------------- Nav bar styles end -----------------------------------------------------*/
 
 /* ------------------------------------- Presentation page styles start ------------------------------------------------*/
@@ -149,9 +152,9 @@ body{
     align-items: center;
     justify-content: center;
     /*background-image: linear-gradient(to right bottom, #510d60, #151591);*/
-    /*background-image: url("https://offloadmedia.feverup.com/secretchicago.com/wp-content/uploads/2020/04/28080401/netflix.jpg");*/
-    background-image: url("https://www.rutgers.edu/sites/default/files/stranger4_edited-1.jpg");
-    background-size: contain;
+    background-image: url("https://offloadmedia.feverup.com/secretchicago.com/wp-content/uploads/2020/04/28080401/netflix.jpg");
+    /*background-image: url("https://www.rutgers.edu/sites/default/files/stranger4_edited-1.jpg");*/
+    /*background-size: cover;*/
     /*background-attachment: fixed;*/
     width: 100%;
     transition: width 2s;
@@ -257,7 +260,7 @@ body{
 .item{
     border-radius: 8px;
     width: 250px;
-    height: 550px;
+    height: 560px;
     margin: 10px 20px;
     box-shadow: 0px 0px 25px black;
     display: flex;
@@ -363,7 +366,9 @@ body{
     slideRight();
 }
 
-
+.shop-outer{
+    display: none;
+}
 .shop-heading-outer{
     display: flex;
     justify-content: center;
@@ -442,7 +447,7 @@ body{
     justify-content: flex-end;
 }
 
-.btn-shop{
+.btn-shop-payment{
     background-color: #0606c0;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -454,7 +459,7 @@ body{
     cursor: pointer;
 }
 
-.btn-shop:hover{
+.btn-shop-payment:hover{
     background-color: #107d81;
     transform: scale(1.1);
 }
@@ -464,6 +469,9 @@ body{
 /*=======================================================================================================================================================*/
 
 /* ---------------------------------- Shopping Cart styles start  ----------------------------------------*/
+.cart-outer{
+    display: none;
+}
 .cart{
     border: 1px solid blue;
     border-radius: 8px;
@@ -604,7 +612,7 @@ body{
 /* --------------------------------------- Checkout page styles start ------------------------------------------*/
 
 #order-checkout-section{
-    display: flex;
+    display: none;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -619,19 +627,22 @@ body{
 }
 
 .reference-common, .description-common, .amount-common, .title-language-common{
-    display: inline;
     font-size: 1em;
     /*font-family: 'Poppins', sans-serif;*/
 }
 
 .order-summary-details-outer{
-    margin: 0 30px 25px 30px ;
+    margin: 0 30px 25px 0px ;
+}
+.order-summary-details{
+    display: grid;
+    grid-template-columns: 30% 50%;
 }
 .reference-label, .description-label, .amount-label, .order-title{
-    width: 100px;
+    width: 200px;
     font-size: 1em;
     font-family: 'Poppins', sans-serif;
-    margin-right: 100px;
+    /*margin-right: 0px;*/
 
 }
 .reference-label, .description-label, .amount-label{
@@ -639,18 +650,18 @@ body{
     background-color: #0b5d5e;
     padding: 6px;
     border-radius: 8px;
-    position: absolute;
+    /*position: absolute;*/
     width: 150px!important;
     text-align: center;
     font-weight: bold;
     margin: 10px;
 }
 .reference-no, .description-text, .amount{
-    margin-left: 250px;
+    margin-left: 0px;
     padding: 20px;
 }
 .title-and-language {
-    padding: 10px!important;
+    /*padding: 10px!important;*/
 }
 .checkout-page-main-titles{
     font-size: 1.5em;

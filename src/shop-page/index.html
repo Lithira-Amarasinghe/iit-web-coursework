@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap"
+            rel="stylesheet"/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+            rel="stylesheet"/>
+
 </head>
 <body>
 
@@ -38,25 +45,26 @@
         </div>
     </section>
     <!-- Presentation page end   -->
+
+    <!--    nav bar start-->
     <section id="header">
         <a href="" class="logo">TV-Series</a>
         <div>
-            <nav class="nav">
-                <ul id="navbar">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a class="active" href="shop.html">Shop</a></li>
-                    <li><a href="blog.html">Comments</a></li>
-                    <li><a href="about.html">Sitemap</a></li>
-                    <li><a href="contact.html">About</a></li>
-                </ul>
-
-                <div class="search">
-                    <input type="text" placeholder="Search TV Series..."/>
-                    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                </div>
-            </nav>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" onclick="goToShop()">Shop</a></li>
+                <li><a href="blog.html">Comments</a></li>
+                <li><a href="about.html">Sitemap</a></li>
+                <li><a href="contact.html">About</a></li>
+            </ul>
+        </div>
+        <div class="right-nav">
+            <input type="text" placeholder="Search TV Series..."/>
+            <a><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a onclick="goToShoppingCart()" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </section>
+    <!-- nav -bar end-->
     <!--Shop page-->
     <div class="shop-outer">
         <div class="shop-heading-outer">
@@ -64,335 +72,336 @@
                 TV-series shop
             </div>
         </div>
-    </div>
-    <div class="item-outer-main">
-        <div class="items-outer">
 
-            <!--            Documentary-->
-            <section>
-                <div id="documentary" class="items-row documentaries-row">
-                    <div class="btn-hover" onmouseover="changeThumbnailStyles()">Documentries</div>
-                    <!--item-genre-title-->
-                    <!--                    <i class='side-slide side-slide-left fas fa-angle-left' onmouseover="leftSlide()"-->
-                    <!--                       style='font-size:36px'></i>-->
-                    <div class="items-thumbnails documentaries-thumbnails">
-                        <div class="item">
-                            <div class="item-id-shop">001</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Documentries/Inside%20bill's%20brain/inside-bill's-brain-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Inside Bill's brain</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $5</div>
+        <div class="item-outer-main">
+            <div class="items-outer">
+                <!--            Documentary-->
+                <section>
+                    <div id="documentary" class="items-row documentaries-row">
+                        <div class="item-genre-title" onmouseover="changeThumbnailStyles()">Documentries</div>
+                        <!--item-genre-title-->
+                        <!--                    <i class='side-slide side-slide-left fas fa-angle-left' onmouseover="leftSlide()"-->
+                        <!--                       style='font-size:36px'></i>-->
+                        <div class="items-thumbnails documentaries-thumbnails">
+                            <div class="item">
+                                <div class="item-id-shop">001</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Documentries/Inside%20bill's%20brain/inside-bill's-brain-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Inside Bill's brain</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $5</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
+                            <div class="item">
+                                <div class="item-id-shop">002</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Documentries/Obama%20In%20Pursuit%20of%20a%20More%20Perfect%20Union/Obama-In-Pursuit-of-a-More-Perfect-Union-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Obama</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $8</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
+                            </div>
+                            <div class="item">
+                                <div class="item-id-shop">003</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Documentries/Hostages/Hostages-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Hostages</div>
+                                    <div class="item-description">Iran hostage crisis</div>
+                                    <div class="item-price">Price : $2</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
+                            </div>
+                            <div class="item">
+                                <div class="item-id-shop">004</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Documentries/Game%20of%20theory%20Bomani%20Jones/Game-Theory-with-Bomani-Jones-Thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name" style="font-size: 0.9em">Game Theory with Bomani Jhones</div>
+                                    <div class="item-description">Emmy-winning sports journalist and commentator</div>
+                                    <div class="item-price">Price : $3</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
+                            </div>
+                            <div class="item">
+                                <div class="item-id-shop">005</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Documentries/Last%20Dance/last-dance-thumbnail.jpg" alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Last Dance</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $4</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
+                            </div>
                         </div>
-                        <div class="item">
-                            <div class="item-id-shop">002</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Documentries/Obama%20In%20Pursuit%20of%20a%20More%20Perfect%20Union/Obama-In-Pursuit-of-a-More-Perfect-Union-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Inside Bill's brain</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $8</div>
+                        <!--                    <i class='side-slide side-slide-right fas fa-angle-right'-->
+                        <!--                       onmouseenter="documentariesRightSlide()"-->
+                        <!--                       onmouseleave="documentariesRightSlideStop()"-->
+                        <!--                       style='font-size:36px'></i>-->
+                    </div>
+                </section>
+
+                <!--fictional-->
+                <section>
+                    <div id="fictional" class="items-row fictional-row">
+                        <div class="item-genre-title">Fictional</div>
+                        <div class="items-thumbnails fictions-thumbnails">
+                            <!--                        <i class='side-slide side-slide-left fas fa-angle-left' style='font-size:36px'></i>-->
+                            <!--                        <i class='side-slide side-slide-right fas fa-angle-right' style='font-size:36px'></i>-->
+
+                            <div class="item">
+                                <div class="item-id-shop">006</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Fictional/Alice-in-borderland/alice-in-borderland-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Alice in borderland</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $5</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">003</div>
-                            <img class="shop-item-img" src="../../assets/Documentries/Hostages/Hostages-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Inside Bill's brain</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $2</div>
+                            <div class="item">
+                                <div class="item-id-shop">007</div>
+                                <img class="shop-item-img" class="item-img"
+                                     src="../../assets/Fictional/Lucifer/lusifer-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Lusifer</div>
+                                    <div class="item-description"></div>
+                                    <div class="item-price">Price : $5</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">004</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Documentries/Game%20of%20theory%20Bomani%20Jones/Game-Theory-with-Bomani-Jones-Thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Inside Bill's brain</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $3</div>
+                            <div class="item">
+                                <div class="item-id-shop">008</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Fictional/Stranger-Things/stranger-things-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Stranger things</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $5</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">005</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Documentries/Last%20Dance/last-dance-thumbnail.jpg" alt="">
-                            <div class="item-details">
-                                <div class="item-name">Inside Bill's brain</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $4</div>
+                            <div class="item">
+                                <div class="item-id-shop">009</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Fictional/The-Boys/the-boys-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">The boys</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $5</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
+                            <div class="item">
+                                <div class="item-id-shop">010</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Fictional/The-Last-of-Us/last-of-us-thumbnail.jpg" alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Last of us</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $5</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <!--                    <i class='side-slide side-slide-right fas fa-angle-right'-->
-                    <!--                       onmouseenter="documentariesRightSlide()"-->
-                    <!--                       onmouseleave="documentariesRightSlideStop()"-->
-                    <!--                       style='font-size:36px'></i>-->
-                </div>
-            </section>
+                </section>
 
-            <!--fictional-->
-            <section>
-                <div id="fictional" class="items-row fictional-row">
-                    <div class="item-genre-title">Fictional</div>
-                    <div class="items-thumbnails fictions-thumbnails">
-                        <!--                        <i class='side-slide side-slide-left fas fa-angle-left' style='font-size:36px'></i>-->
-                        <!--                        <i class='side-slide side-slide-right fas fa-angle-right' style='font-size:36px'></i>-->
+                <!--            Action and Adventure-->
+                <section>
+                    <div id="action-adventure" class="items-row action-adventure-row">
+                        <div class="item-genre-title">Action & Adventure</div>
+                        <div class="items-thumbnails fictions-thumbnails">
+                            <!--                        <i class='side-slide side-slide-left fas fa-angle-left' style='font-size:36px'></i>-->
+                            <!--                        <i class='side-slide side-slide-right fas fa-angle-right' style='font-size:36px'></i>-->
 
-                        <div class="item">
-                            <div class="item-id-shop">006</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Fictional/Alice-in-borderland/alice-in-borderland-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Alice in borderland</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $5</div>
+                            <div class="item">
+                                <div class="item-id-shop">011</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Action-&-Adventure/Arrow/arrow-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Inside Bill's brain</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $5</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">007</div>
-                            <img class="shop-item-img" class="item-img"
-                                 src="../../assets/Fictional/Lucifer/lusifer-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Lusifer</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $5</div>
+                            <div class="item">
+                                <div class="item-id-shop">012</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Action-&-Adventure/Game-of-thrones/game-of-thrones-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Game of throne</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $5</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">008</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Fictional/Stranger-Things/stranger-things-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Stranger things</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $5</div>
+                            <div class="item">
+                                <div class="item-id-shop">013</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Action-&-Adventure/Money-heist/money-heist-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Money heist</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $5</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">009</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Fictional/The-Boys/the-boys-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">The boys</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $5</div>
+                            <div class="item">
+                                <div class="item-id-shop">014</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Action-&-Adventure/Spatacus/spartacus-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Spartacus</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $5</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">010</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Fictional/The-Last-of-Us/last-of-us-thumbnail.jpg" alt="">
-                            <div class="item-details">
-                                <div class="item-name">Inside Bill's brain</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $5</div>
+                            <div class="item">
+                                <div class="item-id-shop">015</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Action-&-Adventure/Vikings/vikings-thumbnail.jpg" alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Vikings</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $5</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!--            Action and Adventure-->
-            <section>
-                <div id="action-adventure" class="items-row action-adventure-row">
-                    <div class="item-genre-title">Action & Adventure</div>
-                    <div class="items-thumbnails fictions-thumbnails">
-                        <!--                        <i class='side-slide side-slide-left fas fa-angle-left' style='font-size:36px'></i>-->
-                        <!--                        <i class='side-slide side-slide-right fas fa-angle-right' style='font-size:36px'></i>-->
+                <!--            Comedy-->
+                <section>
+                    <div id="comedy" class="items-row comedy-row">
+                        <div class="item-genre-title">Comedy</div>
+                        <div class="items-thumbnails fictions-thumbnails">
+                            <!--                        <i class='side-slide side-slide-left fas fa-angle-left' style='font-size:36px'></i>-->
+                            <!--                        <i class='side-slide side-slide-right fas fa-angle-right' style='font-size:36px'></i>-->
 
-                        <div class="item">
-                            <div class="item-id-shop">011</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Action-&-Adventure/Arrow/arrow-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Inside Bill's brain</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $5</div>
+                            <div class="item">
+                                <div class="item-id-shop">016</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Comedy/Everybody%20hates%20chris/everybody-hates-chris-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Everybody hated chris</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $7</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">012</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Action-&-Adventure/Game-of-thrones/game-of-thrones-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Game of throne</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $5</div>
+                            <div class="item">
+                                <div class="item-id-shop">017</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Comedy/Family%20guy/family-guy-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Family guy</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $5</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">013</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Action-&-Adventure/Money-heist/money-heist-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Money heist</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $5</div>
+                            <div class="item">
+                                <div class="item-id-shop">018</div>
+                                <img class="shop-item-img" src="../../assets/Comedy/Friends/friends-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">Friends</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $3</div>
+                                </div>
+                                <button value="notAdded"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">014</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Action-&-Adventure/Spatacus/spartacus-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Spartacus</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $5</div>
+                            <div class="item">
+                                <div class="item-id-shop">019</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Comedy/American-Vandal/american-vandal-thumbnail.jpg"
+                                     alt="">
+                                <div class="item-details">
+                                    <div class="item-name">American Vandal</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $2</div>
+                                </div>
+                                <button value="notAdd"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">015</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Action-&-Adventure/Vikings/vikings-thumbnail.jpg" alt="">
-                            <div class="item-details">
-                                <div class="item-name">Vikings</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $5</div>
+                            <div class="item">
+                                <div class="item-id-shop">020</div>
+                                <img class="shop-item-img"
+                                     src="../../assets/Comedy/The%20office/the-office-thumbnail.jpg" alt="">
+                                <div class="item-details">
+                                    <div class="item-name">The Office</div>
+                                    <div class="item-description">Life story of bill gates</div>
+                                    <div class="item-price">Price : $5</div>
+                                </div>
+                                <button value="notAdd"
+                                        class="btn-add-to-cart">Add to cart
+                                </button>
                             </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <!--            Comedy-->
-            <section>
-                <div id="comedy" class="items-row comedy-row">
-                    <div class="item-genre-title">Comedy</div>
-                    <div class="items-thumbnails fictions-thumbnails">
-                        <!--                        <i class='side-slide side-slide-left fas fa-angle-left' style='font-size:36px'></i>-->
-                        <!--                        <i class='side-slide side-slide-right fas fa-angle-right' style='font-size:36px'></i>-->
-
-                        <div class="item">
-                            <div class="item-id-shop">016</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Comedy/Everybody%20hates%20chris/everybody-hates-chris-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Everybody hated chris</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $7</div>
-                            </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">017</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Comedy/Family%20guy/family-guy-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Family guy</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $5</div>
-                            </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">018</div>
-                            <img class="shop-item-img" src="../../assets/Comedy/Friends/friends-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">Friends</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $3</div>
-                            </div>
-                            <button value="notAdded"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">019</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Comedy/American-Vandal/american-vandal-thumbnail.jpg"
-                                 alt="">
-                            <div class="item-details">
-                                <div class="item-name">American Vandal</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $2</div>
-                            </div>
-                            <button value="notAdd"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                        <div class="item">
-                            <div class="item-id-shop">020</div>
-                            <img class="shop-item-img"
-                                 src="../../assets/Comedy/The%20office/the-office-thumbnail.jpg" alt="">
-                            <div class="item-details">
-                                <div class="item-name">The Office</div>
-                                <div class="item-description">Life story of bill gates</div>
-                                <div class="item-price">Price : $5</div>
-                            </div>
-                            <button value="notAdd"
-                                    class="btn-add-to-cart">Add to cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
     </div>
 
@@ -448,26 +457,27 @@
                 Total price : $0
             </div>
         </div>
-    </div>
-    <div class="details-for-place-order-outer">
-        <div class="details-for-place-order">
-            <div class="name-input input-details">
-                <label class="details-labels" for="name">Name | </label>
-                <input id="name" type="text" placeholder="name">
-            </div>
-            <div class="contact-input input-details">
-                <label class="details-labels" for="contact">Contact | </label>
-                <input id="contact" type="tel" placeholder="phone no">
-            </div>
-            <div class="contact-input input-details">
-                <label class="details-labels" for="express-delivery">ExpressDelivery </label>
-                <input id="express-delivery" type="checkbox">
+
+        <div class="details-for-place-order-outer">
+            <div class="details-for-place-order">
+                <div class="name-input input-details">
+                    <label class="details-labels" for="name">Name | </label>
+                    <input id="name" type="text" placeholder="name">
+                </div>
+                <div class="contact-input input-details">
+                    <label class="details-labels" for="contact">Contact | </label>
+                    <input id="contact" type="tel" placeholder="phone no">
+                </div>
+                <div class="contact-input input-details">
+                    <label class="details-labels" for="express-delivery">ExpressDelivery </label>
+                    <input id="express-delivery" type="checkbox">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="btn-outer">
-        <div class="btn-shop btn-clear" onclick="clearTheCart()">Clear your order</div>
-        <div class="btn-shop btn-place-order" onclick="sendEmail()">Place your order</div>
+        <div class="btn-outer">
+            <div class="btn-shop-payment btn-clear" onclick="clearTheCart()">Clear your order</div>
+            <div class="btn-shop-payment btn-place-order" onclick="checkout()">Checkout</div>
+        </div>
     </div>
     <section id="order-checkout-section">
         <div class="order-summary checkout-page-main-outers">
@@ -483,18 +493,27 @@
                     </select>
                 </div>
             </div>
-            <div class="reference-outer order-summary-details-outer">
+<!--            <div class="reference-outer order-summary-details-outer">-->
+<!--                <div class="reference-label reference-common">Reference</div>-->
+<!--                <div class="reference-no reference-common">0011105954625879212</div>-->
+<!--            </div>-->
+<!--            <div class="description-outer order-summary-details-outer">-->
+<!--                <div class="description-label description-common">Description</div>-->
+<!--                <div class="description-text description-common">Make payment</div>-->
+<!--            </div>-->
+<!--            <div class="amount-outer order-summary-details-outer">-->
+<!--                <div class="amount-label amount-common">Amount(USD)</div>-->
+<!--                <div class="amount amount-common">0</div>-->
+<!--            </div>-->
+            <div class="order-summary-details">
                 <div class="reference-label reference-common">Reference</div>
                 <div class="reference-no reference-common">0011105954625879212</div>
-            </div>
-            <div class="description-outer order-summary-details-outer">
                 <div class="description-label description-common">Description</div>
                 <div class="description-text description-common">Make payment</div>
-            </div>
-            <div class="amount-outer order-summary-details-outer">
                 <div class="amount-label amount-common">Amount(USD)</div>
                 <div class="amount amount-common">0</div>
             </div>
+
         </div>
         <div class="payment-details checkout-page-main-outers">
             <div class="payment-heading checkout-page-main-titles">Payment details</div>
@@ -670,11 +689,17 @@
                 </button>
             </div>
         </div>
+        <div class="btn-outer">
+<!--            <div class="btn-shop-payment btn-cancel" onclick="cancelOrder()">Cancel</div>-->
+            <div class="btn-shop-payment btn-place-order" onclick="placeOrder()">Place order</div>
+        </div>
     </section>
 </div>
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <script src="script.js" async></script>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="https://kit.fontawesome.com/920e9aba3b.js"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
