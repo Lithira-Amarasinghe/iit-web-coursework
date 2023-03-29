@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+</head>
+<body>
+<!--    nav bar start-->
+<section id="header">
+    <a href="" class="logo">TV-Series</a>
+    <div>
+        <ul id="navbar">
+            <li><a >Home</a></li>
+            <li><a href="../shop.html" onclick="goToShop()">Shop</a></li>
+            <li><a href="comments.html">Comments</a></li>
+            <li><a href="about.html">Sitemap</a></li>
+            <li><a href="contact.html">About</a></li>
+        </ul>
+    </div>
+    <div class="right-nav">
+        <input type="text" placeholder="Search TV Series..."/>
+        <a><i class="fa-solid fa-magnifying-glass"></i></a> |
+        <a class="cart-icon"><i class="fa-solid fa-user-pen"></i></a>
+        <a class="cart-icon"><i class="fa-solid fa-palette"></i></a>
+        <a class="cart-icon"><i class="material-symbols-outlined">format_size</i></a>
+    </div>
+</section>
+<!-- nav -bar end-->
+<section id="editor-page" class="center-elements">
+    <div class="editor-page-inner center-elements">
+        <div class="editor-page-heading">
+            Editor page
+        </div>
+        <hr>
+        <div class="editors-details center-elements">
+            <div class="name">Name : Lithira Amarasinghe</div>
+            <div class="role">Role : Student - 1</div>
+            <div class="description">The following pages are edited by me!</div>
+        </div>
+        <hr>
+        <div class="contents-edited-outer">
+            <div class="contents-edited center-elements">
+                <div class="content-title">Presentation page</div>
+                <div class="content-description">
+                    Presentation page of the website is created using the html, css and javascript. Presentation page is visible only when loading the website.
+                    It, only visible to users upto 4 seconds and after that it is disappeared and home page is loaded in the browser
+                </div>
+                <div class="link-to-content"><span>Go to presentation page</span></div>
+            </div>
+            <div class="contents-edited center-elements">
+                <div class="content-title">Shop page</div>
+                <div class="content-description">TV series shop is created using HTML, CSS and Javascript. In the shop
+                    users can buy a tv series they want.
+                    TV series are categorized under 4 section
+                </div>
+                <div class="link-to-content"><span>Go to shop</span></div>
+            </div>
+            <div class="contents-edited center-elements">
+                <div class="content-title">Shopping cart</div>
+                <div class="content-description">Shopping cart is created using HTML, CSS and Javascript. Using this
+                    cart users are able to see all the tv series
+                    that are added to the cart. Users can remove an item from the cart and change the quantity of an
+                    item.
+                </div>
+                <div class="link-to-content"><span>Go to shopping cart</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="editor-script.js" type="text/javascript" async></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="https://kit.fontawesome.com/1167b64bf7.js" crossorigin="anonymous"></script>
+</body>
+</html>

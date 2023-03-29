@@ -2,18 +2,10 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
     ready()
-
 }
 
-let checkoutPage = document.getElementById('order-checkout-section')
-let cart = document.getElementsByClassName('cart-outer')[0]
-let shop = document.getElementsByClassName('shop-outer')[0]
-
 function ready() {
-    setTimeout(loadShop, 4000);
-
-
-    // Remove items from cart using remove button in cart
+   // Remove items from cart using remove button in cart
     let btnRemoveCartItems = document.getElementsByClassName('btn-remove')
     console.log(btnRemoveCartItems)
     for (let i = 0; i < btnRemoveCartItems.length; i++) {
@@ -26,6 +18,7 @@ function ready() {
     //  Add event listener to button for add items
     let btnAddToCart = document.getElementsByClassName('btn-add-to-cart')
     for (let i = 0; i < btnAddToCart.length; i++) {
+        console.log('btn add to cart')
         btnAddToCart[i].addEventListener('click', addToCartOnClick)
     }
     console.log(btnAddToCart)
@@ -53,27 +46,18 @@ function ready() {
     // }
     // changeAddToCartBtnColor()
 
-    const btn = document.querySelector('.btn-hover')
-    btn.onmousemove = function (e) {
-        const x = e.pageX - btn.offsetLeft;
-        const y = e.pageY - btn.offsetTop - 1060;
-
-        btn.style.setProperty('--x', x + 'px')
-        btn.style.setProperty('--y', y + 'px')
-    }
+    // const btn = document.querySelector('.btn-hover')
+    // btn.onmousemove = function (e) {
+    //     const x = e.pageX - btn.offsetLeft;
+    //     const y = e.pageY - btn.offsetTop - 1060;
+    //
+    //     btn.style.setProperty('--x', x + 'px')
+    //     btn.style.setProperty('--y', y + 'px')
+    // }
 }
-
-function loadShop() {
-    let presentationPageContainer = document.getElementById('presentation-page')
-    presentationPageContainer.style.position = 'absolute'
-    presentationPageContainer.style.transitionDuration = '2s'
-    presentationPageContainer.style.top = '-200%';
-    document.getElementsByClassName('shop-outer')[0].style.display = 'block'
-    document.getElementById('header').style.display = 'flex'
-}
-
+//
+//
 function goToShop() {
-    // document.getElementsByClassName('cart-outer')[0].style.display = 'none'
     document.getElementsByClassName('cart-outer')[0].style.display = 'none'
     document.getElementsByClassName('shop-outer')[0].style.display = 'block'
     document.getElementById('order-checkout-section').style.display = 'none'
@@ -215,7 +199,7 @@ function updateCartTotal() {
 
 function updateTotalInCheckoutPage(total) {
     let totalAmountContainer = document.getElementsByClassName('amount')[0];
-    totalAmountContainer.innerText = total;
+    totalAmountContainer.innerText = '$'+total;
 }
 
 function clearTheCart() {
@@ -235,18 +219,18 @@ function clearTheCart() {
     updateCartTotal()
 }
 
-//
-// function proceedPayment(){
-//     let outer = document.getElementsByClassName('outer')[0]
-//     outer.getElementsByClassName('shop-outer')[0].style.display = 'none';
-//     outer.getElementsByClassName('item-outer-main')[0].style.display = 'none'
-//     outer.getElementsByClassName('cart-outer')[0].style.display = 'none';
-// }
+
+function proceedPayment(){
+    let outer = document.getElementsByClassName('outer')[0]
+    outer.getElementsByClassName('shop-outer')[0].style.display = 'none';
+    outer.getElementsByClassName('item-outer-main')[0].style.display = 'none'
+    outer.getElementsByClassName('cart-outer')[0].style.display = 'none';
+}
 
 // ---------------------------- Send checkout details start------------------------------------------
-// let inputContainer = document.getElementsByClassName('details-for-place-order')[0]
-// let name = inputContainer.getElementsByClassName('name-input')[0]
-// let contactNo = inputContainer.getElementsByClassName('contact-input')[0]
+let inputContainer = document.getElementsByClassName('details-for-place-order')[0]
+let name = inputContainer.getElementsByClassName('name-input')[0]
+let contactNo = inputContainer.getElementsByClassName('contact-input')[0]
 
 
 function checkout() {
@@ -280,7 +264,7 @@ function showBillingAddressToEdit(event) {
     let billingAddressInputFields = billingAddressContainer.getElementsByClassName('billing-details-input-fields')[0];
     billingAddressInputFields.style.display = 'grid';
     billingAddressContainer.getElementsByClassName('billing-address-summary')[0].style.display = 'none';
-    // billingAddressContainer.getElementsByClassName('btn-billing-address-edit')[0].style.display = 'none';
+    billingAddressContainer.getElementsByClassName('btn-billing-address-edit')[0].style.display = 'none';
     event.style.display = 'none'
 }
 
@@ -337,14 +321,12 @@ function saveContactDetails() {
     contactDetailContainer.getElementsByClassName('btn-contact-details-edit')[0].style.display = 'block'
 }
 
+// -------------------------------- Checkout page javascript end --------------------------------------
 
-// ----------------------------- Checkout page javascript end ------------------------------------
-
-// // ---------------------------- Send checkout details start------------------------------------------
-let inputContainer = document.getElementsByClassName('details-for-place-order')[0]
-let name = inputContainer.getElementsByClassName('name-input')[0]
-let contactNo = inputContainer.getElementsByClassName('contact-input')[0]
-
+// ----------------------------- Send checkout details start------------------------------------------
+// let inputContainer = document.getElementsByClassName('details-for-place-order')[0]
+// let name = inputContainer.getElementsByClassName('name-input')[0]
+// let contactNo = inputContainer.getElementsByClassName('contact-input')[0]
 
 function placeOrder() {
     alert('You have successfully placed the order. Thank you shopping with us...')
@@ -353,15 +335,15 @@ function placeOrder() {
     document.getElementsByClassName('shop-outer')[0].style.display = 'block'
     clearTheCart();
     // document.getElementById('order-checkout-section').style.display = 'flex'
-    Email.send({
-        SecureToken: "52c01a40-73e0-40f0-afc2-112a5db214a0",
-        To: 'lithira.20220085@iit.ac.lk',
-        From: "amarasinghelithira@gmail.com",
-        Subject: "Checkout details",
-        Body: "Name : " + name + '  Contact no : ' + contactNo
-    }).then(
-        message => alert(message)
-    );
+    // Email.send({
+    //     SecureToken: "52c01a40-73e0-40f0-afc2-112a5db214a0",
+    //     To: 'lithira.20220085@iit.ac.lk',
+    //     From: "amarasinghelithira@gmail.com",
+    //     Subject: "Checkout details",
+    //     Body: "Name : " + name + '  Contact no : ' + contactNo
+    // }).then(
+    //     message => alert(message)
+    // );
 }
 
 
