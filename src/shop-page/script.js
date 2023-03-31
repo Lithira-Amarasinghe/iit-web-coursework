@@ -30,33 +30,8 @@ function ready() {
     for (let i = 0; i < cartInput.length; i++) {
         window.addEventListener('load', updateSubTotal)
     }
-
-    // for (let i = 0; i < btnAddToCart.length; i++) {
-    //     if (btnAddToCart[i].value === 'notAdded') {
-    //         btnAddToCart[i].style.backgroundColor = '#a41414';
-    //         btnAddToCart[i].innerText = 'Added'
-    //         btnAddToCart[i].value = 'added'
-    //         btnAddToCart[i].addEventListener('click', addToCartOnClick)
-    //     } else {
-    //         btnAddToCart[i].style.backgroundColor = '#0da249';
-    //         btnAddToCart[i].innerText = 'Add to cart'
-    //         btnAddToCart[i].value = 'notAdded'
-    //         btnAddToCart[i].addEventListener('click', removeItemsFromCartOnClick)
-    //     }
-    // }
-    // changeAddToCartBtnColor()
-
-    // const btn = document.querySelector('.btn-hover')
-    // btn.onmousemove = function (e) {
-    //     const x = e.pageX - btn.offsetLeft;
-    //     const y = e.pageY - btn.offsetTop - 1060;
-    //
-    //     btn.style.setProperty('--x', x + 'px')
-    //     btn.style.setProperty('--y', y + 'px')
-    // }
 }
-//
-//
+
 function goToShop() {
     document.getElementsByClassName('cart-outer')[0].style.display = 'none'
     document.getElementsByClassName('shop-outer')[0].style.display = 'block'
@@ -147,7 +122,6 @@ function removeItemsUsingCartRemoveButton(event) {
     updateCartTotal();
     console.log(event.target)
     let shopItems = document.getElementsByClassName('item')
-    // console.log(itemIdShop)
     for (let i = 0; i < shopItems.length; i++) {
         let itemIdShop = document.getElementsByClassName('item-id-shop')
         if (itemIdShop[i].innerText === cartItemId) {
@@ -220,26 +194,36 @@ function clearTheCart() {
 }
 
 
-function proceedPayment(){
-    let outer = document.getElementsByClassName('outer')[0]
-    outer.getElementsByClassName('shop-outer')[0].style.display = 'none';
-    outer.getElementsByClassName('item-outer-main')[0].style.display = 'none'
-    outer.getElementsByClassName('cart-outer')[0].style.display = 'none';
-}
-
 // ---------------------------- Send checkout details start------------------------------------------
-let inputContainer = document.getElementsByClassName('details-for-place-order')[0]
-let name = inputContainer.getElementsByClassName('name-input')[0]
-let contactNo = inputContainer.getElementsByClassName('contact-input')[0]
-
 
 function checkout() {
+    let name = document.getElementById('name').value.toString().trim()
+    let phoneNo = document.getElementById('phone-no').value.toString().trim()
+    let email = document.getElementById('email').value.toString().trim()
     let total = document.getElementsByClassName('item-total-price')[0].innerText.replace(/[^0-9]/g, '')
     console.log(total)
+    console.log(email + ' : ' + phoneNo)
     if (total == 0) {
         alert("You haven't add any item to cart")
         return
     }
+    if(name == ''){
+        alert("You haven't enter your name.")
+        return
+    }
+    if(phoneNo.length < 3){
+        alert("Phone no is invalid")
+        return
+    }
+    let emailRegex = /[\w]+@[\w]+[.][\w]+/
+    if(!emailRegex.test(email)) {
+        alert('Invalid email')
+        return
+    }
+
+    document.getElementsByClassName('email-input')[0].value = email
+    document.getElementsByClassName('phone-no-input')[0].value = phoneNo
+    document.getElementsByClassName('card-holders-name-input')[0].value = name
     document.getElementById('order-checkout-section').style.display = 'flex'
     document.getElementsByClassName('shop-outer')[0].style.display = 'none';
     document.getElementsByClassName('cart-outer')[0].style.display = 'none';
@@ -254,9 +238,7 @@ function checkout() {
         message => alert(message)
     );
 }
-
 // ---------------------------- Send checkout details end ------------------------------------------
-
 
 // -------------- Checkout page javascript started ------------------------
 function showBillingAddressToEdit(event) {
@@ -267,23 +249,22 @@ function showBillingAddressToEdit(event) {
     billingAddressContainer.getElementsByClassName('btn-billing-address-edit')[0].style.display = 'none';
     event.style.display = 'none'
 }
-
 function saveBillingAddress() {
     let billingAddressContainer = document.getElementsByClassName('billing-address')[0]
     let billingAddressInputFields = billingAddressContainer.getElementsByClassName('billing-details-input-fields')[0]
     let allInputFields = billingAddressInputFields.getElementsByClassName('billing-input-field')
     let address = '';
+
+    if(!validateBillingAddress()){
+        return;
+    }
+
     for (let i = 0; i < allInputFields.length; i++) {
         let text = allInputFields[i].value.toString().trim()
-        console.log(text)
         if (text !== '') {
             address += text + ", "
         }
     }
-    if (address === '') {
-        address = 'Enter your billing address'
-    }
-
     let addressSummeryContainer = billingAddressContainer.getElementsByClassName('billing-address-summary')[0];
     addressSummeryContainer.innerText = address;
     billingAddressInputFields.style.display = 'none';
@@ -306,34 +287,111 @@ function saveContactDetails() {
     let contactDetails = '';
     for (let i = 0; i < allInputFields.length; i++) {
         let text = allInputFields[i].value.toString().trim()
-        console.log(text)
         if (text !== '') {
-            contactDetails += text + ""
+            contactDetails += text + " "
         }
     }
-    let contactDetailsSummeryContainer = contactDetailContainer.getElementsByClassName('contact-details-summery')[0];
-    if (contactDetails === '') {
-        contactDetails = 'Enter your contact details';
+    if(!validateContactDetails()){
+        return;
     }
+    let contactDetailsSummeryContainer = contactDetailContainer.getElementsByClassName('contact-details-summery')[0];
+
     contactDetailsSummeryContainer.innerText = contactDetails;
     contactDetailsInputFields.style.display = 'none'
     contactDetailsSummeryContainer.style.display = 'block'
     contactDetailContainer.getElementsByClassName('btn-contact-details-edit')[0].style.display = 'block'
 }
 
+function validatePaymentDetails(){                   //  Validate the payment details
+    let cardNo = document.getElementById('card-number').value.trim()
+    let name = document.getElementById('card-holder-name').value.trim()
+    let securityCode = document.getElementById('security-code').value.trim()
+    let expiryDate = document.getElementById('expiry-date').value.trim()
+    console.log(expiryDate)
+
+    if(cardNo.length < 15){
+        alert("Invalid card no");
+        return false;
+    }
+    if(name == ''){
+        alert("Enter the card holder's name");
+        return false;
+    }
+    if(securityCode.length < 3){
+        alert('Invalid security code')
+        return false;
+    }
+
+    if(expiryDate === '' || !validateExpiryDate(expiryDate)){
+        alert('Invalid expiry date')
+        return false;
+    }
+    return true;
+}
+function validateExpiryDate(expiryDate){    // Validate the expiry date of the card used for payment
+    let currentDate = new Date();
+    let thisMonth = currentDate.getMonth();
+    let thisYear = currentDate.getFullYear();
+    let expiryYear = Number(expiryDate.slice(0,4));
+    let expiryMonth = Number(expiryDate.slice(-2))
+    console.log(expiryYear)
+    console.log(expiryMonth)
+    if(expiryYear < thisYear){
+        console.log('Year Less than')
+        return false;
+    }else if(expiryYear === thisYear && expiryMonth <= thisMonth){
+        console.log('Year equal')
+        return false;
+    }
+    return true;
+}
+
+
+function validateBillingAddress(){     // Validate the billing address
+    let country = document.getElementsByClassName('country-input')[0].value.trim();
+    let allInputFields = document.getElementsByClassName('billing-input-field')
+    let addressLines = '';
+    for (let i = 0; i < 3; i++) {
+        addressLines += allInputFields[i].value.toString().trim()
+    }
+    if(addressLines.length < 3){
+        alert('Enter your billing address')
+        return false;
+    }
+    if(country == ''){
+        alert('Select your country')
+        return false;
+    }
+    return true;
+}
+function validateContactDetails(){
+    let email = document.getElementsByClassName('email-input')[0].value.trim()
+    let emailRegex = /[\w]+@[\w]+[.][\w]+/
+    if(!emailRegex.test(email)){
+        alert('Invalid email')
+        return false;
+    }
+    let phoneNo = document.getElementsByClassName('phone-no-input')[0].value.trim()
+    if(phoneNo.length < 3){
+        alert('Invalid phone no')
+        return false;
+    }
+    return true;
+}
+
 // -------------------------------- Checkout page javascript end --------------------------------------
 
 // ----------------------------- Send checkout details start------------------------------------------
-// let inputContainer = document.getElementsByClassName('details-for-place-order')[0]
-// let name = inputContainer.getElementsByClassName('name-input')[0]
-// let contactNo = inputContainer.getElementsByClassName('contact-input')[0]
 
 function placeOrder() {
+    if(!validatePaymentDetails() || !validateBillingAddress() || !validateContactDetails()){
+        return
+    }
+    clearTheCart();
     alert('You have successfully placed the order. Thank you shopping with us...')
     document.getElementById('order-checkout-section').style.display = 'none'
     document.getElementsByClassName('cart-outer')[0].style.display = 'none'
     document.getElementsByClassName('shop-outer')[0].style.display = 'block'
-    clearTheCart();
     // document.getElementById('order-checkout-section').style.display = 'flex'
     // Email.send({
     //     SecureToken: "52c01a40-73e0-40f0-afc2-112a5db214a0",
@@ -347,4 +405,4 @@ function placeOrder() {
 }
 
 
-// // ---------------------------- Send checkout details end ------------------------------------------
+// ---------------------------- Send checkout details end ------------------------------------------

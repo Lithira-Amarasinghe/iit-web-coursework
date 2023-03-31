@@ -8,6 +8,8 @@
 
 body{
     background-image: linear-gradient(to bottom right, #12409f, #4c098a);
+    background-attachment: fixed;
+    background-size: cover;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
 }
@@ -57,7 +59,7 @@ body{
     border-radius: 8px;
 }
 .logo img{
-    width: 150px;
+    width: 100px;
     height: 50px;
     border-radius: 8px;
 }
@@ -309,7 +311,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-.shop-heading{
+#shop-heading{
     font-size: 3em;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -323,6 +325,30 @@ body{
     text-shadow: 0 0 8px #000000;
     box-shadow: 0 0 3px black;
 }
+
+.inner-nav{
+    position: sticky;
+    z-index: 5;
+    top: 70px;
+    display: flex;
+    width: 100vw;
+    background-color: #aedff3;
+    padding: 10px 0;
+}
+.inner-nav div{
+    border-radius: 5px;
+    padding: 10px 50px;
+    margin: 0 30px;
+    background-color: #0f3d56;
+}
+.inner-nav a{
+    color: white;
+    text-decoration: none;
+}
+.inner-nav div:hover{
+    cursor: pointer;
+}
+
 .details-for-place-order-outer{
     display: flex;
     justify-content: center;
@@ -576,7 +602,7 @@ body{
 
 }
 .reference-label, .description-label, .amount-label{
-    color: #96ecd3;
+    color: white;
     background-color: #0b5d5e;
     padding: 6px;
     border-radius: 8px;
@@ -624,6 +650,11 @@ body{
 .payment-details-inputs-fields{
     margin: 10px;
 }
+.payment-details-inputs-fields label::after{
+    content: ' *';
+    color: red;
+}
+
 .payment-details-inputs-fields input{
     border: none;
     outline: none;
@@ -655,7 +686,7 @@ body{
 }
 .billing-details-input-fields{
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 30% 70%;
     margin: 20px 50px;
 }
 .billing-details-input-fields div{
@@ -666,15 +697,32 @@ body{
     margin-bottom: 30px;
     height: 40px;
 }
+.address-1-label::after{
+    content: ' *';
+    color: red;
+}
+.town-label::after{
+    content: ' *';
+    color: red;
+}
+.postal-code-label::after{
+    content: ' *';
+    color: red;
+}
+.country-label::after{
+    content: ' *';
+    color: red;
+}
 .billing-details-input-label{
     color: #ffffff;
     background-color: #0b5d5e;
     border-radius: 8px;
-    padding: 5px 10px;
+    padding: 5px 20px;
     margin: 0 20px;
     font-weight: 600;
     align-items: center;
 }
+
 .billing-details-input {
     width: 100%;
     height: 30px;
@@ -732,7 +780,6 @@ body{
 .contact-details-input-fields{
     display: grid;
     grid-template-columns: 20% 80%;
-    /*margin: 20px 50px;*/
 }
 
 .contact-details-input-label{
@@ -745,7 +792,10 @@ body{
     font-weight: 600;
     align-items: center;
 }
-
+.contact-details-input-label::after{
+    content: ' *';
+    color: red;
+}
 .contact-details-input-fields div{
     margin: 30px;
     height: 40px;
@@ -768,3 +818,47 @@ body{
     -webkit-appearance: none;
 }
 /* --------------------------------------- Checkout page styles end --------------------------------------------*/
+
+/* ------------------------------------------- Footer start -----------------------------------------------------*/
+.link-to-top{
+    padding: 10px 30px;
+    border-radius: 5px;
+    background-color: #04438c;
+    float: right;
+    margin: 0 30px 0 0;
+}
+.link-to-top button{
+    font-size: 1.2em;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+#footer{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 20px 0 ;
+}
+#btn-page-developer{
+    font-size: 1.5em;
+    font-weight: 600;
+    color: white;
+    background-color: #000000;
+    padding: 10px 30px;
+    border-radius: 5px;
+    transform: translate(50% 50%);
+    border: none;
+    box-shadow: 0 0 10px #04438c;
+    transition-duration: 0.3s;
+
+}#btn-page-developer a{
+    text-decoration:none;
+     color: red;
+ }
+#btn-page-developer:hover{
+    transform: scale(1.1);
+    cursor:pointer;
+}
+
+
+
+/* ------------------------------------------- Footer end --------------------------------------------------------*/

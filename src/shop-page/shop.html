@@ -19,22 +19,21 @@
 <div class="outer">
     <!--    nav bar start-->
     <section id="header">
-        <a href="" class="logo"><img src="../../assets/tivilone-logo.png" alt=""></a>
+        <a href="" class="logo"><img src="../../assets/logo-series-one.jpg" alt=""></a>
         <div>
             <ul id="navbar">
-                <li><a href="shop.html">Home</a></li>
+                <li><a >Home</a></li>
                 <li><a class="active" onclick="goToShop()">Shop</a></li>
-                <li><a href="">Comments</a></li>
-                <li><a href="about.html">Sitemap</a></li>
+                <li><a >Comments</a></li>
+                <li><a >Sitemap</a></li>
                 <li><a href="../content-page/content.html">Content page</a></li>
-                <li><a href="contact.html">About</a></li>
+                <li><a >About</a></li>
             </ul>
         </div>
         <div class="right-nav">
             <input type="text" placeholder="Search TV Series..."/>
             <a><i class="fa-solid fa-magnifying-glass"></i></a>
             <a onclick="goToShoppingCart()" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a> |
-            <a href="../editor-page/editor.html" class="cart-icon"><i class="fa-solid fa-user-pen"></i></a>
             <a class="cart-icon"><i class="fa-solid fa-palette"></i></a>
             <a class="cart-icon"><i class="material-symbols-outlined">format_size</i></a>
         </div>
@@ -43,20 +42,22 @@
     <!--Shop page-->
     <section class="shop-outer">
         <div class="shop-heading-outer">
-            <div class="shop-heading">
+            <div id="shop-heading">
                 TV-series shop
             </div>
         </div>
-
+        <div class="inner-nav">
+            <a href="#documentary"><div>Documentaries</div></a>
+            <a href="#fictional"><div>Fictional</div></a>
+            <a href="#action-adventure"><div>Action and Adventure</div></a>
+            <a href="#comedy"><div>Comedy</div></a>
+        </div>
         <div class="item-outer-main">
             <div class="items-outer">
                 <!--            Documentary-->
                 <section>
                     <div id="documentary" class="items-row documentaries-row">
                         <div class="item-genre-title">Documentries</div>
-                        <!--item-genre-title-->
-                        <!--                    <i class='side-slide side-slide-left fas fa-angle-left' onmouseover="leftSlide()"-->
-                        <!--                       style='font-size:36px'></i>-->
                         <div class="items-thumbnails documentaries-thumbnails">
                             <div class="item">
                                 <div class="item-id-shop">001</div>
@@ -128,10 +129,6 @@
                                 </button>
                             </div>
                         </div>
-                        <!--                    <i class='side-slide side-slide-right fas fa-angle-right'-->
-                        <!--                       onmouseenter="documentariesRightSlide()"-->
-                        <!--                       onmouseleave="documentariesRightSlideStop()"-->
-                        <!--                       style='font-size:36px'></i>-->
                     </div>
                 </section>
 
@@ -498,8 +495,12 @@
                 <input id="name" type="text" placeholder="name">
             </div>
             <div class="contact-input input-details">
-                <label class="details-labels" for="contact">Contact | </label>
-                <input id="contact" type="tel" placeholder="phone no">
+                <label class="details-labels" for="phone-no">Phone no | </label>
+                <input id="phone-no" type="number" placeholder="phone no">
+            </div>
+            <div class="contact-input input-details">
+                <label class="details-labels" for="email">Email | </label>
+                <input id="email" type="email" placeholder="example@gmail.com">
             </div>
             <div class="contact-input input-details">
                 <label class="details-labels" for="express-delivery">ExpressDelivery </label>
@@ -545,25 +546,20 @@
         </div>
         <div class="card-number payment-details-inputs-fields">
             <label for="card-number">Card number</label><br>
-            <input id="card-number" type="number">
+            <input id="card-number" placeholder="XXXX-XXXX-XXXX-XXXX" type="number">
         </div>
         <div class="card-holders-name payment-details-inputs-fields">
-            <label>Card holders name</label><br>
-            <input type="text">
+            <label for="card-holder-name">Card holders name</label><br>
+            <input id="card-holder-name" class="card-holders-name-input" required type="text">
         </div>
         <div class="expiry-date payment-details-inputs-fields">
-            <div>Expiry date</div>
-            <div>
-                <input type="month">
-            </div>
+            <label for="expiry-date">Expiry date</label><br>
+            <input id="expiry-date" type="month">
         </div>
         <div class="security-code payment-details-inputs-fields">
-            <div>Security code</div>
-            <div>
-                <input type="number">
-                <img src="" alt="">
-                <div>Last three digits of the back of the card</div>
-            </div>
+            <label for="security-code">Security code</label><br>
+            <input id="security-code" type="number" placeholder="XXX"><br>
+            <div>Last three digits of the back of the card</div>
         </div>
     </div>
     <div class="billing-address checkout-page-main-outers">
@@ -571,21 +567,21 @@
         <button onclick="showBillingAddressToEdit(this)" class="btn-billing-address-edit btn-edit">edit<span
                 class="material-symbols-outlined">keyboard_arrow_down</span></button>
         <form action="" class="billing-details-input-fields billing-contact-input-fields">
-            <label class="address-1 billing-details-input-label">Address 1</label>
-            <div class="billing-details-input"><input required class="billing-input-field" type="text"></div>
-            <label class="address-2 billing-details-input-label">Address 2</label>
-            <div class="billing-details-input"><input required class="billing-input-field" type="text"></div>
-            <label class="address-3 billing-details-input-label ">Address 3</label>
-            <div class="billing-details-input"><input class="billing-input-field" type="text"></div>
-            <label class="address-1 billing-details-input-label">Town/City</label>
-            <div class="billing-details-input"><input class="billing-input-field" type="text"></div>
-            <label class="address-2 billing-details-input-label">State/Region</label>
-            <div class="billing-details-input"><input class="billing-input-field" type="text"></div>
-            <label class="address-3 billing-details-input-label">Postalcode/ Zip code</label>
-            <div class="billing-details-input"><input class="billing-input-field" type="text"></div>
-            <label class="address-3 billing-details-input-label">Country</label>
+            <label class="address-1-label billing-details-input-label">Address 1</label>
+            <div class="billing-details-input"><input required class="address-1-input billing-input-field" type="text"></div>
+            <label class="address-2-label billing-details-input-label">Address 2</label>
+            <div class="billing-details-input"><input required class="address-2-input billing-input-field" type="text"></div>
+            <label class="address-3-label billing-details-input-label ">Address 3</label>
+            <div class="billing-details-input"><input class="address-3-input billing-input-field" type="text"></div>
+            <label class="town-label billing-details-input-label">Town/City</label>
+            <div class="billing-details-input"><input class="town-input billing-input-field" type="text"></div>
+            <label class="state-label billing-details-input-label">State/Region</label>
+            <div class="billing-details-input"><input class="state-input billing-input-field" type="text"></div>
+            <label class="postal-code-label billing-details-input-label">Postalcode/ Zip code</label>
+            <div class="billing-details-input"><input class="postal-code-input billing-input-field" type="text"></div>
+            <label class="country-label billing-details-input-label">Country</label>
             <div class="billing-details-input"><select style="outline: none; border: none"
-                                                       class="billing-input-field" name="" id="">
+                                                       class="country-input billing-input-field" name="" id="">
                 <option selected value>select your country</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
@@ -698,9 +694,9 @@
                 class="material-symbols-outlined">keyboard_arrow_down</span></button>
         <div class="contact-details-input-fields">
             <label class="phone-number contact-details-input-label">Phone number</label>
-            <div class="contact-details-input"><input type="number"></div>
+            <div class="contact-details-input"><input placeholder="Phone no" class="phone-no-input" type="number"></div>
             <label class="email-address contact-details-input-label">Email address</label>
-            <div class="contact-details-input"><input type="text"></div>
+            <div class="contact-details-input"><input placeholder="example@gmail.com" class="email-input" type="text"></div>
         </div>
         <div class="billing-contact-summery contact-details-summery">
         </div>
@@ -716,7 +712,11 @@
     </div>
 </section>
 <!-- ---------------------------------- Payment page end --------------------------------------------->
-
+<a class="link-to-top" href="#shop-heading"><button>To top</button></a>
+<hr>
+<section id="footer">
+    <button id="btn-page-developer"><a href="../editor-page/editor.html">To Editor Details</a></button>
+</section>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script src="https://kit.fontawesome.com/1167b64bf7.js" crossorigin="anonymous"></script>
 <script src="script.js" async></script>
