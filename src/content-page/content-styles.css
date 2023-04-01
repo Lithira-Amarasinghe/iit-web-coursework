@@ -5,11 +5,11 @@
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    background-size: cover;
 }
 body{
     background-image: linear-gradient(to bottom right, #12409f, #4c098a);
 }
-
 
 /* -------------------------------------------- Nav bar styles start ---------------------------------------------------*/
 .logo{
@@ -31,7 +31,7 @@ body{
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background-color: rgb(197, 228, 239);
     padding: 5px 30px 5px 5px;
     position: sticky;
@@ -120,8 +120,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    width: 80%;
+    width:100%;
 }
 .descriptions{
     background-color: #c7e3f6;
@@ -129,7 +128,6 @@ body{
     padding: 10px;
     margin: 10px;
 }
-
 #content-page-heading {
     display: flex;
     align-items: center;
@@ -143,7 +141,11 @@ body{
     border-radius: 8px;
 }
 .inner-nav{
+    position: sticky;
+    z-index: 5;
+    top: 70px;
     display: flex;
+    justify-content: center;
     width: 100vw;
     background-color: #aedff3;
     padding: 10px 0;
@@ -153,6 +155,8 @@ body{
     padding: 10px 50px;
     margin: 0 30px;
     background-color: #0f3d56;
+    transition-duration: 0.3s;
+    font-weight: 600;
 }
 .inner-nav a{
     color: white;
@@ -160,6 +164,12 @@ body{
 }
 .inner-nav div:hover{
     cursor: pointer;
+    background-color: #083770;
+    transform: scale(1.1);
+}
+.content-outer{
+    width: 80%;
+    align-self: flex-start;
 }
 .content-titles{
     margin: 10px 10px 10px 20px;
@@ -180,6 +190,10 @@ body{
     margin: 20px;
 }
 .img-gallery-outer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: inherit;
 }
 .img-gallery-title{
@@ -205,6 +219,40 @@ body{
     width: inherit;
     min-height: inherit;
 }
+.link-to-other-content{
+    position: absolute;
+    right: 0;
+    top: 930px;
+    background-color: #ddf9fa;
+    font-weight: 600;
+    font-size: 1em;
+    padding: 100px 20px;
+    border-radius: 5px;
+}
+.link-to-other-content a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.link-to-other-content li{
+    margin: 50px 0;
+    background-color: #04438c;
+    padding: 10px;
+    border-radius: 10px;
+}
+.link-to-other-content li:hover{
+    margin: 50px 0;
+    background-color: #0c2354;
+
+    padding: 10px;
+    border-radius: 10px;
+}
+.content-outer{
+
+}
+.active-content{
+    background-color: #2d0d54;
+}
+
 .btn-to-top {
     padding: 10px 30px;
     border-radius: 5px;
@@ -238,7 +286,7 @@ body{
      text-decoration:none;
      color: red;
  }
-#btn-page-developer:hover{
+#btn-editor-page:hover{
     transform: scale(1.1);
     cursor:pointer;
 }

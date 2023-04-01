@@ -10,7 +10,7 @@
 <body>
 <!--    nav bar start-->
 <section id="header">
-    <a href="" class="logo"><img src="../../assets/tivilone-logo.png" alt=""></a>
+    <a href="" class="logo"><img src="../../assets/logo-series-one.jpg" alt=""></a>
     <div>
         <ul id="navbar">
             <li><a >Home</a></li>
@@ -21,10 +21,6 @@
             <li><a >About</a></li>
         </ul>
     </div>
-    <div class="right-nav">
-        <a class="cart-icon"><i class="fa-solid fa-palette"></i></a>
-        <a class="cart-icon"><i class="material-symbols-outlined">format_size</i></a>
-    </div>
 </section>
 <!-- nav -bar end-->
 <section id="editor-page" class="center-elements">
@@ -33,6 +29,12 @@
             Editor page
         </div>
         <hr>
+        <div class="inner-nav">
+            <a href="#presentation-page"><div>Presentation</div></a>
+            <a href="#shop"><div>Shop</div></a>
+            <a href="#shopping-cart"><div>Shopping cart</div></a>
+            <a href="#content-page"><div>Content</div></a>
+        </div>
         <div class="editors-details center-elements">
             <div class="name">Name : Lithira Amarasinghe</div>
             <div class="role">Role : Student - 1</div>
@@ -40,32 +42,34 @@
         </div>
         <hr>
         <div class="contents-edited-outer">
-            <div class="contents-edited center-elements">
+            <div id="presentation-page" class="contents-edited center-elements">
                 <div class="content-title">Presentation page</div>
                 <div class="content-description">
                     Presentation page of the website is created using the html, css and javascript. Presentation page is visible only when loading the website.
-                    It, only visible to users upto 4 seconds and after that it is disappeared and home page is loaded in the browser
+                    It, only visible to users upto 4 seconds and after that it is disappeared and home page is loaded in the browser. HTML meta tage is
+                    used to redirect to another page after 4 seconds
                 </div>
                 <div class="link-to-content"><span><a href="../presentation-page/presentation.html">Go to presentation page</a></span></div>
             </div>
-            <div class="contents-edited center-elements">
+            <div id="shop" class="contents-edited center-elements">
                 <div class="content-title">Shop page</div>
-                <div class="content-description">TV series shop is created using HTML, CSS and Javascript. In the shop
-                    users can buy a tv series they want.
-                    TV series are categorized under 4 section
+                <div class="content-description">
+                    TV series shop is created using HTML, CSS and Javascript. In the shop users can buy a tv series they want.
+                    TV series are categorized under 4 section. Internal navigation links are included for all the categories in shop.
+                    Color and innerText of add to cart button is dynamically changed using JavaScript.
                 </div>
                 <div class="link-to-content"><span><a href="../shop-page/shop.html">Go to shop</a></span></div>
             </div>
-            <div class="contents-edited center-elements">
+            <div id="shopping-cart" class="contents-edited center-elements">
                 <div class="content-title">Shopping cart</div>
                 <div class="content-description">Shopping cart is created using HTML, CSS and Javascript. Using this
                     cart users are able to see all the tv series
                     that are added to the cart. Users can remove an item from the cart and change the quantity of an
-                    item.
+                    item. Dynamically changing the content of the cart is done by using JavaScript.
                 </div>
                 <div class="link-to-content"><span><a href="../shop-page/shop.html">Go to shopping cart</a></span></div>
             </div>
-            <div class="contents-edited center-elements">
+            <div id="content-page" class="contents-edited center-elements">
                 <div class="content-title">Content page</div>
                 <div class="content-description">
                     Content page is created using HTML, CSS and Javascript. Using this

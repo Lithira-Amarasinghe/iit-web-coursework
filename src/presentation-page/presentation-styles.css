@@ -51,7 +51,6 @@
 .authors-details{
     display: grid;
     grid-template-columns: 50% 50%;
-
 }
 .author{
     height: 70px;

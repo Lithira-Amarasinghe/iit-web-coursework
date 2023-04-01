@@ -241,13 +241,13 @@ function checkout() {
 // ---------------------------- Send checkout details end ------------------------------------------
 
 // -------------- Checkout page javascript started ------------------------
-function showBillingAddressToEdit(event) {
+function showBillingAddressToEdit(element) {
     let billingAddressContainer = document.getElementsByClassName('billing-address')[0];
     let billingAddressInputFields = billingAddressContainer.getElementsByClassName('billing-details-input-fields')[0];
     billingAddressInputFields.style.display = 'grid';
     billingAddressContainer.getElementsByClassName('billing-address-summary')[0].style.display = 'none';
     billingAddressContainer.getElementsByClassName('btn-billing-address-edit')[0].style.display = 'none';
-    event.style.display = 'none'
+    element.style.display = 'none'
 }
 function saveBillingAddress() {
     let billingAddressContainer = document.getElementsByClassName('billing-address')[0]
@@ -383,7 +383,7 @@ function validateContactDetails(){
 
 // ----------------------------- Send checkout details start------------------------------------------
 
-function placeOrder() {
+function makePayment() {
     if(!validatePaymentDetails() || !validateBillingAddress() || !validateContactDetails()){
         return
     }
@@ -404,5 +404,8 @@ function placeOrder() {
     // );
 }
 
+function cancelPayment(){
+    window.location.href = 'shop.html'
+}
 
 // ---------------------------- Send checkout details end ------------------------------------------
