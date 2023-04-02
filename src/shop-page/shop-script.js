@@ -157,7 +157,7 @@ function updateSubTotal(event) {
     updateCartTotal()
 }
 
-function updateCartTotal() {
+function updateCartTotal() {  // update the total of the cart
     let total = 0
     let cartItems = document.getElementsByClassName('cart-item-list-data')
     let totalContainer = document.getElementsByClassName('item-total-price')[0]
@@ -171,7 +171,7 @@ function updateCartTotal() {
     updateTotalInCheckoutPage(total);
 }
 
-function updateTotalInCheckoutPage(total) {
+function updateTotalInCheckoutPage(total) {       //
     let totalAmountContainer = document.getElementsByClassName('amount')[0];
     totalAmountContainer.innerText = '$'+total;
 }
