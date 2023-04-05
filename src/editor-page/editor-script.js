@@ -1,7 +1,7 @@
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', ready)
+if (document.readyState === 'loading') {            // Check whether the document is still loading
+    document.addEventListener('DOMContentLoaded', ready)   // ready() method calls after loading the content to the DOM
 } else {
-    ready()
+    ready()          // If the page already loaded ready() method will trigger
 }
 
 function ready() {
@@ -16,10 +16,3 @@ function ready() {
         }
     }
 }
-
-function goToShop(){
-    document.getElementById('order-checkout-section').style.display = 'none'
-    document.getElementsByClassName('cart-outer')[0].style.display = 'none'
-    document.getElementsByClassName('shop-outer')[0].style.display = 'block'
-}
-

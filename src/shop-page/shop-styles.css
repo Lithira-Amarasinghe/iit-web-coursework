@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-*{
+ *{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -27,9 +26,7 @@ body{
     padding: 10px 30px;
     border: 1px solid red;
     overflow: hidden;
-    /*--x:-300px;*/
-    /*--y:-300px;*/
-    z-index: 100;
+    z-index: 5;
 }
 
 .btn-hover::before{
@@ -167,7 +164,6 @@ body{
     margin-top: 50px;
     flex-wrap: wrap;
     width: 100vw;
-    /*overflow-x: auto;*/
 }
 
 .items-row {
@@ -185,15 +181,6 @@ body{
 
 }
 
-.items-thumbnails::-webkit-scrollbar {
-    width: 10px;
-}
-
-/* Track */
-.items-row::-webkit-scrollbar-track {
-    background: none;
-}
-
 .item{
     border-radius: 8px;
     width: 250px;
@@ -205,12 +192,10 @@ body{
     align-items: center;
     flex-direction: column;
     position: relative;
-    /*background-color: #430657;*/
 }
 
 .item-genre-title:hover{
     transition-duration: 0.3s;
-    /*border: 5px solid red;*/
     cursor: pointer;
     transform: scale(1.03);
     background: #000000;
@@ -248,11 +233,10 @@ body{
     padding: 10px;
 }
 .item-name{
-    font-weight: 800;
+    font-weight: 600;
     font-size: 1.4em;
 }
 .btn-add-to-cart{
-    /*position: absolute;*/
     bottom: 10vw;
     border-radius: 5px;
     background-color: #01a916;
@@ -272,37 +256,6 @@ body{
     transform: scale(1.1);
 }
 
-.side-slide{
-    top:260px;
-    position: absolute;
-    width: 40px;
-    text-align: center;
-    border-radius: 4px;
-    background-color: #a2a2a2;
-    /*border-radius: 8px;*/
-    /*float: right;*/
-}
-
-.side-slide:hover{
-   background-color: #e8e8e8;
-    transition-duration: 0.5s;
-}
-
-.side-slide-left{
-    left: 2vw;
-}
-/*.side-slide-left:hover{*/
-/*    border-right: 2px solid white;*/
-/*}*/
-.side-slide-right{
-    right: 3vw;
-}
-.side-slide-right:hover{
-    border-left: 2px solid white;
-    animation-name: right-slide;
-    animation-duration: 2s;
-    slideRight();
-}
 .shop-outer{
     display: block;
 }
@@ -406,7 +359,6 @@ body{
 
 .btn-outer{
     display: flex;
-    /*align-items: flex-end;*/
     justify-content: flex-end;
 }
 
@@ -467,7 +419,6 @@ body{
     height: auto;
     min-height: 200px;
     width: 95vw;
-    /*background-color: #095e75;*/
     box-shadow: 0 0 25px rgba(0,0,0,0.6);
     border-radius: 8px;
 }
@@ -486,21 +437,7 @@ body{
 .cart-item-name{
     width: 200px;
 }
-/*#cart-item-name-heading{*/
-/*    margin-left: 20px;*/
-/*}*/
-/*#cart-item-img-heading{*/
-/*    margin: 20px;*/
-/*}*/
-/*#cart-item-qty-heading{*/
-/*    margin: 20px;*/
-/*}*/
-/*#cart-item-unit-price-heading{*/
-/*    margin: 20px;*/
-/*}*/
-/*#item-sub-total-heading{*/
-/*    margin: 20px;*/
-/*}*/
+
 
 .cart-item-list-data{
     display: flex;
@@ -513,12 +450,6 @@ body{
     padding: 10px;
     margin-bottom: 5px;
 }
-
-/*.cart-item-list > div {*/
-/*    background-color: rgba(95, 227, 208, 0.8);*/
-/*    text-align: center;*/
-/*    padding: 20px 0;*/
-/*}*/
 
 .cart-item-img img{
     width: auto;
@@ -603,7 +534,6 @@ body{
     width: 200px;
     font-size: 1em;
     font-family: 'Poppins', sans-serif;
-    /*margin-right: 0px;*/
 
 }
 .reference-label, .description-label, .amount-label{
@@ -618,7 +548,7 @@ body{
     margin: 10px;
 }
 .reference-no, .description-text, .amount{
-    margin-left: 0px;
+    margin-left: 0;
     padding: 20px;
 }
 .title-and-language {
@@ -765,12 +695,6 @@ body{
     font-weight: 600;
     box-shadow: 0 0 5px #11325b;
 }
-.billing-address-buttons{
-
-}
-.billing-address-buttons button{
-
-}
 
 .billing-contact-cancel-btn{
     border: 4px solid #116b86;
@@ -831,10 +755,7 @@ body{
     background-color: #04438c;
     float: right;
     margin: 0 30px 0 0;
-}
-.link-to-top button{
     font-size: 1.2em;
-    background-color: transparent;
     border: none;
     color: white;
 }
@@ -846,24 +767,18 @@ body{
 #btn-editor-page{
     font-size: 1.5em;
     font-weight: 600;
-    color: white;
     background-color: #000000;
     padding: 10px 30px;
     border-radius: 5px;
-    /*transform: translate(50% 50%);*/
     border: none;
     box-shadow: 0 0 10px #04438c;
     transition-duration: 0.3s;
-
-}#btn-editor-page a{
     text-decoration:none;
-     color: red;
+    color: red;
  }
 #btn-editor-page:hover{
     transform: scale(1.1);
     cursor:pointer;
 }
-
-
 
 /* ------------------------------------------- Footer end --------------------------------------------------------*/

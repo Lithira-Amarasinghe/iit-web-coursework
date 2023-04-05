@@ -1,14 +1,8 @@
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', ready)
+if (document.readyState === 'loading') {        // Check whether the document is still loading
+    document.addEventListener('DOMContentLoaded', ready)  // ready() method triggers after loading the content to the DOM
 } else {
-    ready()
+    ready()     // If the page already loaded ready() method will trigger
 }
-let imageSrcArray = [
-    "../../assets/Comedy/The%20office/the-office.jpg",
-    "../../assets/Comedy/American-Vandal/american-vandal.jpg",
-    "../../assets/Comedy/Everybody%20hates%20chris/everybody-hates-chris.jpg",
-    "../../assets/Documentries/Inside%20bill's%20brain/inside-bill's-brain.jpg"
-]
 function ready(){
     changeBackgroundImage();
 }

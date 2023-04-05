@@ -1,13 +1,14 @@
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', ready)
+if (document.readyState === 'loading') {                // Check whether the document is still loading
+    document.addEventListener('DOMContentLoaded', ready) // ready() method calls after loading the content to the DOM
 } else {
-    ready()
+    ready()         // If the page already loaded ready() method will trigger
 }
+let referenceNo;
 
 function ready() {
+    this.referenceNo = Math.floor(Math.random() * 1000000000000000)
    // Remove items from cart using remove button in cart
     let btnRemoveCartItems = document.getElementsByClassName('btn-remove')
-    console.log(btnRemoveCartItems)
     for (let i = 0; i < btnRemoveCartItems.length; i++) {
         btnRemoveCartItems[i].addEventListener('click', (event) => {
             updateCartTotal();
@@ -18,10 +19,8 @@ function ready() {
     //  Add event listener to button for add items
     let btnAddToCart = document.getElementsByClassName('btn-add-to-cart')
     for (let i = 0; i < btnAddToCart.length; i++) {
-        console.log('btn add to cart')
         btnAddToCart[i].addEventListener('click', addToCartOnClick)
     }
-    console.log(btnAddToCart)
 
     // Cart sub total update when quantity changed
     updateSubTotalOnChange();
@@ -32,20 +31,19 @@ function ready() {
     }
 }
 
-function goToShop() {
+function goToShop() {           // Shop will display in the screen using this function
     document.getElementsByClassName('cart-outer')[0].style.display = 'none'
     document.getElementsByClassName('shop-outer')[0].style.display = 'block'
     document.getElementById('order-checkout-section').style.display = 'none'
 }
 
-function goToShoppingCart() {
+function goToShoppingCart() {      // Cart will display in the screen using this function
     document.getElementsByClassName('cart-outer')[0].style.display = 'block'
     document.getElementsByClassName('shop-outer')[0].style.display = 'none'
     document.getElementById('order-checkout-section').style.display = 'none'
 }
 
 function changeAddToCartBtnStatus(btn) {
-    console.log('color changed')
     document.getElementsByClassName('btn-add-to-cart')
     btn.style.backgroundColor = '#0da249';
     btn.innerText = 'Add to cart'
@@ -81,7 +79,7 @@ function addToCartOnClick(event) {
         updateCartTotal()
     }
 }
-
+// Dynamically items added to the cart
 function addToCart(id, name, price, imageSrc) {
     let itemRow = document.createElement('div')
     itemRow.innerHTML = `
@@ -120,12 +118,10 @@ function removeItemsUsingCartRemoveButton(event) {
     let cartItemId = itemRow.getElementsByClassName('item-id-cart')[0].innerText
     itemRow.remove();
     updateCartTotal();
-    console.log(event.target)
     let shopItems = document.getElementsByClassName('item')
     for (let i = 0; i < shopItems.length; i++) {
         let itemIdShop = document.getElementsByClassName('item-id-shop')
         if (itemIdShop[i].innerText === cartItemId) {
-            console.log('Btn found ')
             let btn = itemIdShop[i].parentElement.getElementsByClassName('btn-add-to-cart')[0]
             changeAddToCartBtnStatus(btn)         // change the status of the add to cart button in shop.
         }
@@ -146,13 +142,9 @@ function updateSubTotal(event) {
     if (isNaN(quantity) || quantity <= 0) {
         quantityInput.value = 1
     }
-    console.log(quantityInput)
-    console.log(quantityInput.innerText)
     let cartItemsContainer = document.getElementsByClassName('cart-item-list-data')
     let unitPrice = quantityInput.parentElement.parentElement.getElementsByClassName('cart-item-unit-price')[0].innerText.replace('$', '')
-    console.log(unitPrice)
     let subTotal = unitPrice * quantityInput.value
-    console.log(subTotal)
     quantityInput.parentElement.parentElement.getElementsByClassName('item-sub-total')[0].innerText = '$' + subTotal
     updateCartTotal()
 }
@@ -164,8 +156,6 @@ function updateCartTotal() {  // update the total of the cart
     for (let i = 0; i < cartItems.length; i++) {
         let subTotal = Number(cartItems[i].getElementsByClassName('item-sub-total')[0].innerText.replace('$', ''))
         total += subTotal;
-        console.log(subTotal)
-        console.log('Total updated')
     }
     totalContainer.innerText = 'Total price : $' + total;
     updateTotalInCheckoutPage(total);
@@ -193,7 +183,6 @@ function clearTheCart() {
     updateCartTotal()
 }
 
-
 // ---------------------------- Send checkout details start------------------------------------------
 
 function checkout() {
@@ -201,8 +190,7 @@ function checkout() {
     let phoneNo = document.getElementById('phone-no').value.toString().trim()
     let email = document.getElementById('email').value.toString().trim()
     let total = document.getElementsByClassName('item-total-price')[0].innerText.replace(/[^0-9]/g, '')
-    console.log(total)
-    console.log(email + ' : ' + phoneNo)
+    document.getElementsByClassName('reference-no')[0].innerText = this.referenceNo;
     if (total == 0) {
         alert("You haven't add any item to cart")
         return
@@ -228,15 +216,6 @@ function checkout() {
     document.getElementsByClassName('shop-outer')[0].style.display = 'none';
     document.getElementsByClassName('cart-outer')[0].style.display = 'none';
 
-    Email.send({
-        SecureToken: "52c01a40-73e0-40f0-afc2-112a5db214a0",
-        To: 'lithira.20220085@iit.ac.lk',
-        From: "amarasinghelithira@gmail.com",
-        Subject: "Checkout details",
-        Body: "Name : "
-    }).then(
-        message => alert(message)
-    );
 }
 // ---------------------------- Send checkout details end ------------------------------------------
 
@@ -307,7 +286,6 @@ function validatePaymentDetails(){                   //  Validate the payment de
     let name = document.getElementById('card-holder-name').value.trim()
     let securityCode = document.getElementById('security-code').value.trim()
     let expiryDate = document.getElementById('expiry-date').value.trim()
-    console.log(expiryDate)
 
     if(cardNo.length < 15){
         alert("Invalid card no");
@@ -334,13 +312,9 @@ function validateExpiryDate(expiryDate){    // Validate the expiry date of the c
     let thisYear = currentDate.getFullYear();
     let expiryYear = Number(expiryDate.slice(0,4));
     let expiryMonth = Number(expiryDate.slice(-2))
-    console.log(expiryYear)
-    console.log(expiryMonth)
     if(expiryYear < thisYear){
-        console.log('Year Less than')
         return false;
     }else if(expiryYear === thisYear && expiryMonth <= thisMonth){
-        console.log('Year equal')
         return false;
     }
     return true;
@@ -349,13 +323,20 @@ function validateExpiryDate(expiryDate){    // Validate the expiry date of the c
 
 function validateBillingAddress(){     // Validate the billing address
     let country = document.getElementsByClassName('country-input')[0].value.trim();
-    let allInputFields = document.getElementsByClassName('billing-input-field')
-    let addressLines = '';
-    for (let i = 0; i < 3; i++) {
-        addressLines += allInputFields[i].value.toString().trim()
-    }
-    if(addressLines.length < 3){
+    let address = document.getElementsByClassName('address-1-input')[0].value.trim()
+    let postalCode = document.getElementsByClassName('postal-code-input')[0].value.trim()
+    let town = document.getElementsByClassName('town-input')[0].value.trim()
+
+    if(address == ''){
         alert('Enter your billing address')
+        return false;
+    }
+    if(postalCode == ''){
+        alert('Enter your postal code')
+        return false;
+    }
+    if(town == ''){
+        alert('Enter your town/city')
         return false;
     }
     if(country == ''){
@@ -381,31 +362,16 @@ function validateContactDetails(){
 
 // -------------------------------- Checkout page javascript end --------------------------------------
 
-// ----------------------------- Send checkout details start------------------------------------------
-
-function makePayment() {
+function makePayment() {       // Make payment, clear the cart and return to the shop
     if(!validatePaymentDetails() || !validateBillingAddress() || !validateContactDetails()){
         return
     }
-    clearTheCart();
     alert('You have successfully placed the order. Thank you shopping with us...')
-    document.getElementById('order-checkout-section').style.display = 'none'
-    document.getElementsByClassName('cart-outer')[0].style.display = 'none'
-    document.getElementsByClassName('shop-outer')[0].style.display = 'block'
-    // document.getElementById('order-checkout-section').style.display = 'flex'
-    // Email.send({
-    //     SecureToken: "52c01a40-73e0-40f0-afc2-112a5db214a0",
-    //     To: 'lithira.20220085@iit.ac.lk',
-    //     From: "amarasinghelithira@gmail.com",
-    //     Subject: "Checkout details",
-    //     Body: "Name : " + name + '  Contact no : ' + contactNo
-    // }).then(
-    //     message => alert(message)
-    // );
+    window.location.href = 'shop.html'
+    this.referenceNo = Math.floor(Math.random() * 1000000000000000)
+
 }
 
-function cancelPayment(){
+function cancelPayment(){       // Cancel the payment, clear the cart and return to shop
     window.location.href = 'shop.html'
 }
-
-// ---------------------------- Send checkout details end ------------------------------------------
