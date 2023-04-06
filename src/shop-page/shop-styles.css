@@ -181,6 +181,10 @@ body{
 
 }
 
+.items-thumbnails::-webkit-scrollbar {
+    width: 20px;
+}
+
 .item{
     border-radius: 8px;
     width: 250px;
